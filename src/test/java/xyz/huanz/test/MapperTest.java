@@ -25,7 +25,7 @@ import xyz.huanz.util.TxtDateProcess;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MapperTest {
-	@Autowired 
+	@Autowired
 	private TrainingService trainingService;
 	
 	@Test
