@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xyz.huanz.mapper.TrainingMapperCustom">
+
+	<insert id="insertListBatch" parameterType="java.util.List">
+		insert into training
+		(id,eno,time,longitude,latitude,speed,distance,heart_rate)
+		values
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.id},#{item.eno},#{item.time},#{item.longitude},#{item.latitude},#{item.speed},
+			#{item.distance},#{item.heartRate})
+		</foreach>
+	</insert>
+	<select id="selectEnoList" resultType="String">
+		select eno from training
+		GROUP BY eno
+	</select>
+
+</mapper>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>index</title>
+
+<!-- Bootstrap -->
+<link th:href="@{/static/css/bootstrap.min.css}" rel="stylesheet">
+
+<!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+<!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+<!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        canvas{
+            display:block;
+            border:  1px solid #ccc
+        }
+    </style>
+</head>
+<body>
+	<div class="container">
+		<form style="margin: 20px auto;">
+			<div class="form-group">
+				<label for="file">上传训练数据</label> <input type="file" name="file"
+					id="file">
+				<p class="help-block" id="msg" style="color: red">请选择文件</p>
+			</div>
+		</form>
+		<input type="button" class="btn btn-default" id="_submit" value="提交" />
+
+		<hr />
+
+		<form action="" id="select_equipment" method="POST">
+			<div style="margin-top: 10px;">
+				<button type="button" class="btn btn-default group" name="open_close_list"
+					style="text-align: left; width: 100%;">
+					<span class="open_close_list">+</span> 选择设备
+				</button>
+				
+				<ul class="list-group" id="open_close_list"
+					style="display: none; margin: 0px auto;">
+					
+					
+				</ul>
+			</div>
+			<input type="button" class="btn btn-default" id="generate" value="生成" style="margin-top:10px;"/>
+		</form>
+		
+		<!-- <div>
+			<button onclick="changeInterval(2)"> ×2 </button>
+			<button onclick="changeInterval(4)"> ×4 </button>
+			<button onclick="changeInterval(8)"> ×8 </button>
+			<button onclick="changeInterval(16)"> ×16 </button>
+		</div> -->
+		<div id="canvas_container">
+			
+		</div>
+	</div>
+	
+	<script th:src="@{/static/js/jquery2.2.2.min.js}"></script>
+	<script th:src="@{/static/js/index.js}"></script>
+	<script th:src="@{/static/js/canvas.js}"></script>
+</body>
+</html>
